@@ -36,6 +36,9 @@ main{
     padding: 17px;
     margin-top: 0.7rem;
     margin-left: 0.7rem;
+    position:fixed;
+    background-color: white;
+    border-radius: 100%;
     z-index: 3;
     /* background-color: rgba(137, 43, 226, 0.541); */
 }
@@ -49,12 +52,14 @@ main{
 .nav-wraper{
     width: 60px;
     height: 60px;
-    position:absolute;
+    position:fixed;
     top:1rem;
     right: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 100%;
+    background-color: white;
 }
 .nav-wraper:hover .nav-lines{
     transform-origin: 50% 50%;
@@ -128,6 +133,62 @@ main{
     }
 } */
 
+.nav-page-wraper{
+    position: fixed;
+    background-color: black;
+    left:50%;
+    right:50%;
+    top: 0;
+    bottom: 100;
+    animation: navColaps 0.6s forwards ease-in-out;
+
+}
+.nav-active .nav-page-wraper{
+    animation: navReveal 1s forwards;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+@keyframes navReveal {
+    0%{ 
+        left:50%;
+        right:50%;
+        top: 0;
+        bottom: 100;     
+    }
+    30%{   
+        left: 49.9%;
+        right: 49.9%;
+        top: 0;
+        bottom: 0;
+    }
+    100%{
+        right: 0;
+        left: 0;
+    }
+}
+@keyframes navColaps {
+    0%{  
+        right: 0;
+        left: 0;    
+        top: 0;    
+        bottom: 0;    
+    }
+    70%{   
+        left: 49.9%;
+        right: 49.9%;
+        top: 0;
+        bottom: 0;
+    }
+    100%{
+        left:50%;
+        right:50%;
+        top: 0;
+        bottom: 100;
+    }
+}
+
 
 
 /* hero styles */
@@ -199,27 +260,7 @@ main{
     margin:0;
     font-family: Roboto Mono,sans-serif;
 }
-
-
-/* .cursor{
-position: fixed;
-width: 10px;
-height: 10px;
-margin-left: -20px;
-margin-top: -20px;
-border-radius: 50%;
-border: 2px solid #fff;
-transition: transform .7s ease;
-transform-origin: center center;
-pointer-events: none;
-mix-blend-mode: difference;
-z-index: 1000;
+.img{
+    width:100%;
 }
 
-.hero-head:hover .cursor{
-transform: scale(2);
-border: 20px solid #fff;
-
-}
-
-*/

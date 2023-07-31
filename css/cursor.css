@@ -11,16 +11,18 @@
     justify-content: center;
     mix-blend-mode: difference;
     z-index: 10;
+    will-change: transform;
 }
 /* TODO: make cursor with the border not the cursor-wrapper */
 .cursor{
     border: 2px solid white;
     border-radius: 100%; 
     pointer-events: none;
-    width: 12px;
-    height: 12px;
+    width: 14px;
+    height: 14px;
     aspect-ratio: 1/1;
     scale: 1;
+    will-change: opacity;
     /* background: rgba(255, 255, 255, 0); */
     transition: all 0.5s ease-out, background 0.5s ease-out;
     mix-blend-mode: difference;
@@ -46,3 +48,11 @@
     cursor: pointer;
 }
 
+@media (width<961px) {
+    .cursor-wrapper{
+        display: none;
+    }
+    .cursor{
+        display: none;
+    }
+}

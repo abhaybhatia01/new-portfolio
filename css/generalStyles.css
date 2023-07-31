@@ -21,6 +21,15 @@
     --current-color:var(--white);
     --current-bg-color:var(--black);
 }
+
+::-moz-selection {
+	color: var(--current-bg-color);
+	background: var(--current-color); 
+}
+::selection {
+	color: var(--current-bg-color);
+	background: var(--current-color);
+}
 /* system theme preference  */
  /* @media (prefers-color-scheme: dark) {
     :root {
@@ -51,8 +60,8 @@ body {
     pointer-events: none
 } */
 .container{
-    padding-left:4rem;
-    padding-right:4rem;
+    padding-left:clamp(15px, 7%, 60px);
+    padding-right:clamp(15px, 7%, 60px);
 }
 main{
     position: relative;
@@ -92,6 +101,7 @@ main{
 
 /* nav styles */
 .nav-wraper{
+    
     width: 60px;
     height: 60px;
     position:fixed;
@@ -171,8 +181,8 @@ main{
         rotate:-45deg;
     }
 } */
-/* 
-body.nav-active {
+
+/* body.nav-active {
     height: 100vh;
     overflow-y: hidden;
     padding-right: 15px; 
@@ -180,17 +190,19 @@ body.nav-active {
 
 .nav-page-wraper{
     position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    transform: translateX(100%);
+    transition: transform 0.5s;
     background-color: var(--current-bg-color);
-    left:50%;
-    right:50%;
-    bottom: 0;
-    top: 0;
-    bottom: 100;
-    animation: navColaps 0.5s forwards ease-in-out;
-
+    /* animation: navColaps 0.5s forwards ease-in-out; */
 }
+
 .nav-active .nav-page-wraper{
-    animation: navReveal 0.5s forwards;
+    transition: transform 0.5s;
+    transform: translateX(0%);
+    /* animation: navReveal 0.5s forwards; */
     top: 0;
     bottom: 0;
     right: 0;
@@ -245,24 +257,19 @@ body.nav-active {
    
 }
 .nav-item{
-    scale: 0;
     color: var(--current-color);
     font-family: 'Bebas Neue', sans-serif;
     text-decoration: none;
-    transition: all 0.4s;
-    opacity: 0;
     display: block;
     padding:1rem;
-    font-size: 0.1rem;
-
+    font-size: 3rem;
+    opacity: 0;
+    transition: opacity 0.8s 0.4s ;
 
 }
 .nav-active .nav-item{
-    font-size: 3rem;
-    scale: 1;
-    transition: opacity 0.2s 0.3s, scale 0.2s 0.3s, font-size 0.2s 0.3s;
     opacity: 1;
-
+    transition: opacity 0.9s 0.4s ;
 }
 
 
@@ -272,29 +279,26 @@ body.nav-active {
     padding-bottom: 6rem;
     cursor:default;
 }
+
 .hero-head, .hero-asterisk{
     /* font-family: Vanguard,Impact,sans-serif; */
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 10rem;
-    font-weight: 500;
+    color: var(--current-color);
     text-transform: uppercase;
     padding:0;
     margin:0;
-    letter-spacing: -.06ch;
-    line-height: 90%;
-    color: var(--current-color);
-
+    line-height: 90%; 
+    font-size: 6rem;
+    /* font-weight: 500; */
+    /* letter-spacing: -.06ch;   */
+    /* 
+    */
 }
 .hero-asterisk{
     font-size: 2rem;
+}
 
-}
-.hero-text-wrap{
-    margin-top: 2rem;
-}
-.hero-head-name{
-    display: flex;
-}
+
 .spacing-asterisk{
     font-family: Roboto Mono,sans-serif;
     font-size: .7rem;
@@ -303,7 +307,39 @@ body.nav-active {
     display: flex;
     justify-content: space-between;
 }
-@media (width>800px) {
+.hero-name-joke-spacer{
+
+}
+@media (width>487px) {
+    .hero-graating-container,
+    .hero-head-name{
+        display: flex;
+    }
+
+    .hero-im,
+    .hero-bhatia{
+        padding-left: 15px;
+    }
+}
+@media (width>630px) {
+    .hero-graating-container,
+    .hero-head-name{
+        display: flex;
+    }
+
+    .hero-im,
+    .hero-bhatia{
+        padding-left: 15px;
+    }
+}
+
+
+.hero-text-wrap{
+    margin-top: 2rem;
+}
+
+
+/* @media (width>800px) {
     .hero-head{
         font-size: 7rem;
     }
@@ -322,18 +358,17 @@ body.nav-active {
     .hero-head{
         font-size: 12rem;
     }
-}
+} */
 .hero-joke-container{
-    flex-flow: column;
-    align-self: flex-end;
-    align-items: flex-start;
     display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     font-size:0.6rem;
     font-weight: 100;
     letter-spacing: 0.02rem;
-    line-height: 120%;
+    /* line-height: 120%; */
 }
-.hero-joke-container p{
+.hero-joke{
     margin:0;
     color: var(--current-color);
     font-family: Roboto Mono,sans-serif;

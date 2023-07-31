@@ -1,8 +1,8 @@
 
 
 gsap.set(".cursor-wrapper", {xPercent: -50, yPercent: -50});
-let xTo = gsap.quickTo(".cursor-wrapper", "x", {duration: 0.4, ease: "power4"}),
-    yTo = gsap.quickTo(".cursor-wrapper", "y", {duration: 0.4, ease: "power4"});
+let xTo = gsap.quickTo(".cursor-wrapper", "x", {duration: 0.4, ease: "power3"}),
+    yTo = gsap.quickTo(".cursor-wrapper", "y", {duration: 0.4, ease: "power3"});
 window.addEventListener("mousemove", e => {
     xTo(e.clientX);
     yTo(e.clientY);

@@ -1,8 +1,8 @@
 
 
 gsap.set(".cursor-wrapper", {xPercent: -50, yPercent: -50});
-let xTo = gsap.quickTo(".cursor-wrapper", "x", {duration: 0.4, ease: "power3"}),
-    yTo = gsap.quickTo(".cursor-wrapper", "y", {duration: 0.4, ease: "power3"});
+let xTo = gsap.quickTo(".cursor-wrapper", "x", {duration: 0.4, ease: "power3"});
+let  yTo = gsap.quickTo(".cursor-wrapper", "y", {duration: 0.4, ease: "power3"});
 window.addEventListener("mousemove", e => {
     xTo(e.clientX);
     yTo(e.clientY);
@@ -18,11 +18,11 @@ function unit_unhover_cursor(e) { cursor_wrapper.classList.remove('unit_cursor_h
 
 })
 
+//mouse enter and leave  the window
 document.addEventListener('mouseleave',()=>{
-    cursor_wrapper.style.opacity='0';
-    console.log('out')
+    cursor_wrapper.classList.add('mouse-out');
 })
 document.addEventListener('mouseenter',()=>{
-    cursor_wrapper.style.opacity='1';
+    cursor_wrapper.classList.remove('mouse-out');
 })
 

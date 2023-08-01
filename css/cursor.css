@@ -12,6 +12,8 @@
     mix-blend-mode: difference;
     z-index: 10;
     will-change: transform;
+    opacity: 1;
+    transition: opacity 0.4s ;
 }
 /* TODO: make cursor with the border not the cursor-wrapper */
 .cursor{
@@ -46,6 +48,10 @@
 
 .big-cursor:hover{
     cursor: pointer;
+}
+.mouse-out{
+    opacity: 0;
+    transition: opacity 0.4s ;
 }
 
 @media (width<961px) {

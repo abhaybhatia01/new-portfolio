@@ -76,7 +76,7 @@
                             <div class="hero-name-joke-spacer">
                                 <div  class=" hero-head-name ">
                                     <h1 class="hero-head hero-abhay">abhay </h1>
-                                    <h1 class="hero-head hero-bhatia"> bhatia</h1>
+                                    <h1 class="hero-head hero-bhatia text-switch"> bhatia</h1>
                                     <!-- <h2 class="hero-asterisk ">*</h2> -->
                                 </div>
                                 <div class="hero-joke-container">
@@ -110,9 +110,23 @@
 
             <script src="./js/cursor.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script> 
+
 
 
             <script>
+                // lenis for smooth scroll
+                const lenis = new Lenis()
+                lenis.on('scroll', (e) => {console.log(e)})
+
+                function raf(time) {
+                lenis.raf(time)
+                requestAnimationFrame(raf)
+                }
+                requestAnimationFrame(raf)
+
+
+                
 
                 // nav toggle 
                 const body = document.querySelector('body');
@@ -149,6 +163,9 @@
                 });
 
 
+
+
+                
 
             </script>
             <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script> -->

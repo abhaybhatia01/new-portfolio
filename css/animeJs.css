@@ -5,6 +5,7 @@
     /* letter-spacing: 1px; */
     text-transform: uppercase;
     margin: 0px;
+    color:var(--current-color);
 }
 
 .text-switch .letter {

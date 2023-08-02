@@ -16,7 +16,6 @@
         <script src="./js/loader.js"></script>
         <style>
             /* .char{
-                transform:translateY(110px);
                 transition: transform 0.5s;
                 display: inline-block;
             } */
@@ -27,6 +26,13 @@
             .char{
                 display: inline-block;
                 transform: translateY(120%);
+            }
+            .hero-joke-container{
+                display: flex;
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+            }
+            .hero-joke{
+                opacity: 0;
             }
         </style> 
 
@@ -183,10 +189,9 @@
                 textSplit();
 
                 //fadeup
-                var animateUp = anime
-                .timeline({ loop: false, autoplay:false  })
+                var animateUp = anime.timeline({ loop: false, autoplay:false  })
                 animateUp.add({
-                    targets: " .char",
+                    targets: " .char , .hero-joke",
                     translateY: [120, 0],
                     translateZ: 0,
                     opacity: [0, 1],

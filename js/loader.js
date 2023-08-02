@@ -1,4 +1,5 @@
-window.addEventListener("load", function finishPreload() {
+
+    window.addEventListener("load", function finishPreload() {
     // setting the theme
     setTheme();
 
@@ -11,6 +12,7 @@ window.addEventListener("load", function finishPreload() {
     bounce.forEach((bubble) => {
         bubble.classList.remove("loading-active");
     });
+
 });
 
 
@@ -42,6 +44,12 @@ function setTheme(changeTo) {
         root.classList.remove('dark-theme')
     }
 }
+
+
+
+
+
+
 // document
 //     .querySelector(".img")
 //     .addEventListener("click", function preload() {

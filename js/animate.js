@@ -54,3 +54,9 @@ function do_animate() {
 setTimeout(() => {
     letterTricks();
 }, 1000);
+
+
+
+
+
+    

@@ -15,14 +15,26 @@
         <script src="./js/animate.js"></script>
         <script src="./js/loader.js"></script>
         <style>
-            
+            /* .char{
+                transform:translateY(110px);
+                transition: transform 0.5s;
+                display: inline-block;
+            } */
+            .text-up{
+                display: flex;
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+            }
+            .char{
+                display: inline-block;
+                transform: translateY(120%);
+            }
         </style> 
 
 
     </head>
     <body >
 
-            <div class="loader">
+            <div class="loader ">
                 <div class="spinner">
                     <div class="double-bounce1 loading-active"></div>
                     <div class="double-bounce2 loading-active"></div>
@@ -70,13 +82,13 @@
                     <div class="container">
                         <div class="hero-text-wrap "> 
                             <div class="hero-graating-container" >
-                                <h2 class="hero-head hero-hi">hi,</h2>
-                                <h2 class="hero-head hero-im">i'm</h2>
+                                <h2 class="hero-head hero-hi text-up">hi,</h2>
+                                <h2 class="hero-head hero-im text-up">i'm</h2>
                             </div>
                             <div class="hero-name-joke-spacer">
                                 <div  class=" hero-head-name ">
-                                    <h1 class="hero-head hero-abhay">abhay </h1>
-                                    <h1 class="hero-head hero-bhatia text-switch"> bhatia</h1>
+                                    <h1 class="hero-head hero-abhay text-up">abhay </h1>
+                                    <h1 class="hero-head hero-bhatia text-up"> bhatia</h1>
                                     <!-- <h2 class="hero-asterisk ">*</h2> -->
                                 </div>
                                 <div class="hero-joke-container">
@@ -126,7 +138,6 @@
                 requestAnimationFrame(raf)
 
 
-                
 
                 // nav toggle 
                 const body = document.querySelector('body');
@@ -162,7 +173,36 @@
                     setTheme()
                 });
 
+                // splitig text  for animation
+                function textSplit() {
+                    let textWrapper = document.querySelectorAll(".text-up");
+                    textWrapper.forEach(text =>{
+                        text.innerHTML = text.textContent.replace( /./g , "<span class='char'>$&</span>");
+                    })
+                }
+                textSplit();
 
+                //fadeup
+                var animateUp = anime
+                .timeline({ loop: false, autoplay:false  })
+                animateUp.add({
+                    targets: " .char",
+                    translateY: [120, 0],
+                    translateZ: 0,
+                    opacity: [0, 1],
+                    easing: "easeOutExpo",
+                    duration: 1600,
+                    delay: (el, i) => 300 + 30 * i,
+                })   
+                // after loding text animation
+                // Wait before playing animation
+                window.addEventListener("load", function heroAnimation() {
+                    setTimeout(()=>{
+                        animateUp.play()
+                    }
+                    , 1000);
+                })
+    // gsap.to()
 
 
                 

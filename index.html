@@ -104,7 +104,64 @@
                             </div>
                         </div>
                     </div>
-                </header>
+                </header class ="horizontal-text-wraper">
+                    
+                <section class ="horizontal-text-wraper">
+                    <div class="">
+                        <div class="sentence-wraper">
+                            <div class="sentence sentence-forward">
+                                <div class="word">let</div>
+                                <div class="word fancy">tell</div>
+                                <div class="word"> you </div>
+                                <div class="word"> a</div>
+                                <div class="word"> story</div>
+                                <div class="word"> story</div>
+                                <div class="word"> story</div>
+                                <div class="word fancy"> story</div>
+                                <div class="word"> story</div>
+                                <div class="word"> story</div>
+                                <div class="word"> story</div>
+                                <div class="word fancy"> story</div>
+                                <div class="word"> story</div>
+                                <div class="word"> story</div>
+                            </div>
+                        </div>
+                        <div class="sentence-wraper">
+                            <div class="sentence sentence-invert">
+                                <div class="word">let</div>
+                                <div class="word">tell</div>
+                                <div class="word fancy"> you </div>
+                                <div class="word"> a</div>
+                                <div class="word"> story</div>
+                                <div class="word fancy"> story</div>
+                                <div class="word"> story</div>
+                                <div class="word"> story</div>
+                                <div class="word"> story</div>
+                                <div class="word"> story</div>
+                                <div class="word fancy"> story</div>
+                                <div class="word"> story</div>
+                                <div class="word fancy"> story</div>
+                            </div>
+                        </div>
+                        <div class="sentence-wraper">
+                            <div class="sentence sentence-forward">
+                                <div class="word fancy">let</div>
+                                <div class="word">tell</div>
+                                <div class="word"> you </div>
+                                <div class="word fancy"> a</div>
+                                <div class="word"> story</div>
+                                <div class="word"> story</div>
+                                <div class="word"> story</div>
+                                <div class="word"> story</div>
+                                <div class="word fancy"> story</div>
+                                <div class="word"> story</div>
+                                <div class="word"> story</div>
+                                <div class="word fancy"> story</div>
+                                <div class="word"> story</div>
+                            </div>
+                        </div>
+                </div>
+                </section>
                 
                 <div>
                     <a href="/"
@@ -129,13 +186,14 @@
             <script src="./js/cursor.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
             <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script> 
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
 
 
             <script>
                 // lenis for smooth scroll
                 const lenis = new Lenis()
-                lenis.on('scroll', (e) => {console.log(e)})
+                // lenis.on('scroll', (e) => {console.log(e)})
 
                 function raf(time) {
                 lenis.raf(time)
@@ -191,7 +249,7 @@
                 //fadeup
                 var animateUp = anime.timeline({ loop: false, autoplay:false  })
                 animateUp.add({
-                    targets: " .char , .hero-joke",
+                    targets: " .char , .hero-joke ",
                     translateY: [120, 0],
                     translateZ: 0,
                     opacity: [0, 1],
@@ -207,8 +265,63 @@
                     }
                     , 1000);
                 })
-    // gsap.to()
+                
+                gsap.registerPlugin(ScrollTrigger);
 
+                // gsap.to('.hero',{scrollTrigger: {
+                //     trigger: ".hero",
+                //     scrub: true,
+                //     start: "top top",
+                //     end: "bottom top",
+                //     pin:true,
+                //     markers:true,
+                //     y:1000
+                // }})
+
+                let tl = gsap.timeline({ scrollTrigger: {
+                    trigger:'hero',
+                    scrub: 1,
+                    start: "top top",
+                    end: "bottom top",
+                    // pin:true,
+                    markers:true,
+                }})
+
+                tl.to('hero-bhatia, .hero-abhay, .hero-head, .hero-im , .hero-hi',{
+                scale:1.1,
+                x:10 ,
+                y:500 ,
+                // rotation:360,
+                duration:3 
+                })
+
+                let t2 = gsap.timeline({ scrollTrigger: {
+                    scrub: 2,
+                    start: "top 100vh",
+                    end: "bottom top",
+                    // pin:true,
+                    markers:true,
+                }})
+
+                t2.to('.sentence-forward',{
+                x:-400 ,
+                // rotation:360,
+                duration:3 
+                })
+
+                let t3 = gsap.timeline({ scrollTrigger: {
+                    scrub: 1,
+                    start: "top 100vh",
+                    end: "bottom top",
+                    // pin:true,
+                    markers:true,
+                }})
+
+                t3.to('.sentence-invert',{
+                x:-600,
+                // rotation:360,
+                duration:3 
+                })
 
                 
 

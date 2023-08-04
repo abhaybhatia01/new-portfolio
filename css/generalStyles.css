@@ -4,8 +4,8 @@
 /* themes  */
 :root {
     color-scheme: light dark; /* both supported */  
-    --white:white;
-    --black:black;
+    --white:#F8F8F8;
+    --black:#0A0A0A;
     --main-bg-color: #000080;
     --main-text-color: #fff; 
 }
@@ -405,3 +405,24 @@ main{
     width:100%;
 }
 
+.sentence-wraper{
+    overflow-x: hidden;
+    border: 1px solid var(--current-color);
+
+}
+.sentence{
+    display: flex;
+    background-color: var(--current-bg-color);
+}
+
+.word{
+    font-size:3rem;
+    text-transform: uppercase;
+    margin-right:1rem;
+    color: var(--current-bg-color);
+    text-shadow: -1px -1px 0 var(--current-color), 1px -1px 0 var(--current-color), -1px 1px 0 var(--current-color), 1px 1px 0 var(--current-color)
+}
+.fancy{
+    color:var(--current-color);
+
+}

@@ -106,20 +106,27 @@
                     </div>
                 </header >
                     
-                <section class ="horizontal-text-wraper big-cursor">
+                <section class ="horizontal-text-wraper ">
                     <div class="skew-item">
                         <div class="sentence-wraper">
                             <div class="sentence sentence-forward">
+                                <span class="word fancy big-cursor"> scroll</span>
+                                <span class="word  "> to</span>
+                                <span class="word fancy big-cursor"> see</span>
+                                <span class="word "> my</span>
+                                <span class="word fancy big-cursor"> projects</span>
                                 <span class="word "> scroll</span>
-                                <span class="word fancy "> to</span>
+                                <span class="word fancy big-cursor"> to</span>
                                 <span class="word "> see</span>
-                                <span class="word "> my</span>
-                                <span class="word fancy"> projects</span>
-                                <span class="word "> scroll</span>
-                                <span class="word "> to</span>
-                                <span class="word fancy"> see</span>
-                                <span class="word "> my</span>
+                                <span class="word fancy big-cursor"> my</span>
                                 <span class="word "> projects</span>
+                                <span class="word fancy big-cursor"> scroll</span>
+                                <span class="word  "> to</span>
+                                <span class="word fancy big-cursor"> see</span>
+                                <span class="word  "> my</span>
+
+                                <span class="word fancy big-cursor"> projects</span>
+                        
 
                             </div>
                         </div>
@@ -143,21 +150,27 @@
                         <div class="sentence-wraper">
                             <div class="sentence sentence-forward">
                                 
-                                <span class="word fancy"> my</span>
-                                <span class="word "> projects</span>
-                                <span class="word fancy"> scroll</span>
-                                <span class="word "> to</span>
+
+                                <span class="word "> scroll</span>
+                                <span class="word fancy big-cursor"> to</span>
                                 <span class="word "> see</span>
-                                <span class="word fancy"> my</span>
+                                <span class="word fancy big-cursor"> my</span>
                                 <span class="word "> projects</span>
-                                <span class="word fancy"> scroll</span>
+                                <span class="word fancy big-cursor"> scroll</span>
                                 <span class="word "> to</span>
+                                <span class="word fancy big-cursor"> see</span>
+                                <span class="word "> my</span>
+                                <span class="word fancy big-cursor"> projects</span>
+                                <span class="word "> scroll</span>
+                                <span class="word fancy big-cursor"> to</span>
                                 <span class="word "> see</span>
+                                <span class="word fancy big-cursor"> my</span>
+                                <span class="word "> projects</span>
                             </div>
                         </div>
                 </div>
                 </section>
-<!--                 
+                
                 <div>
                     <a href="/"
                         ><img
@@ -165,7 +178,7 @@
                             src="https://source.unsplash.com/random/"
                             alt=""
                     /></a>
-                </div> -->
+                </div>
                 <div class="footer-cta-text-wrapper big-cursor">
                     <h1 class="headline contact-cta-text">let's</h1>
                     <div class="text-switch-clip ">
@@ -270,36 +283,18 @@
 
 
 
-                // gsap.to('.hero',{scrollTrigger: {
-                //     trigger: ".hero",
-                //     scrub: true,
-                //     start: "top top",
-                //     end: "bottom top",
-                //     pin:true,
-                //     markers:true,
-                //     y:1000
-                // }})
 
-
-
-                // let t2 = gsap.timeline({ scrollTrigger: {
-                //     scrub: 2,
-                //     start: "top 100vh",
-                //     end: "bottom top",
-                //     // pin:true,
-                //     markers:true,
-                // }})
 
                 ScrollTrigger.create({
                         trigger:'.horizontal-text-wraper',
-                        scrub: isDesktop ? 0.8 : 0,
+                        scrub: 0.7,
                         start: "top bottom",
                         end: "bottom top",
                         animation: gsap.to('.sentence-forward', {
-                            x:isDesktop ? -500 : -200 ,
-                            duration: isDesktop ? 3:1 // reduce duration for mobile
+                            x:isDesktop ? -800 : -600 ,
+                            duration: isDesktop ? 3:4 // reduce duration for mobile
                         }),
-                        throttle: isDesktop ? 1:0.12  // Adjust the throttle value as needed
+                        throttle: isDesktop ? 1:0.1  // Adjust the throttle value as needed
                     });
 
                         // if(isDesktop){
@@ -333,12 +328,12 @@
                 //     scrub: 1,
                 //     start: "top 100vh",
                 //     end: "bottom top",
-                //     // pin:true,
+                //     pin:true,
                 //     markers:true,
                 // }})
 
-                // t3.to('.sentence-invert',{
-                // x:-600,
+                // t3.to('.horizontal-text-wraper',{
+                // y:-600,
                 // // rotation:360,
                 // duration:3
                 // })

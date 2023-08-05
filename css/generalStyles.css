@@ -404,25 +404,53 @@ main{
 .img{
     width:100%;
 }
+.horizontal-text-wraper{
+overflow-x: hidden;
+height:max-content;
+padding-bottom: 200vh;
+opacity: 0;
+}
+.skew-item{
 
+}
 .sentence-wraper{
     overflow-x: hidden;
     border: 1px solid var(--current-color);
+}
 
+.sentence-invert{
+    transform: skew(30deg);
+    
 }
 .sentence{
     display: flex;
     background-color: var(--current-bg-color);
+    font-size:3rem;
+    text-transform: uppercase;
+    color: var(--current-bg-color);
+    text-shadow: -1px -1px 0 var(--current-color), 1px -1px 0 var(--current-color), -1px 1px 0 var(--current-color), 1px 1px 0 var(--current-color);
+    white-space: nowrap;
 }
 
 .word{
     font-size:3rem;
+    transition: transform 0.5s ease;
+
     text-transform: uppercase;
-    margin-right:1rem;
+    padding-right:1rem;
     color: var(--current-bg-color);
     text-shadow: -1px -1px 0 var(--current-color), 1px -1px 0 var(--current-color), -1px 1px 0 var(--current-color), 1px 1px 0 var(--current-color)
 }
+.sentence-invert .word:hover{
+    color: var(--current-color);
+    transform: skew(-30deg);
+    transition: transform 0.5s ease;
+
+    text-shadow: 0px 0px 0 ;
+}
+
 .fancy{
+
     color:var(--current-color);
 
 }

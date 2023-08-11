@@ -210,8 +210,12 @@ main{
     padding-right: 15px; 
 } */
 
+nav{
+    position: absolute;
+    z-index: 999;
+
+}
 .nav-page-wraper{
-    position: fixed;
     inset: 0;
     display: grid;
     place-items: center;
@@ -276,6 +280,8 @@ main{
     width: 100%;
     display: flex;
     align-items: center;
+
+
    
 }
 .nav-item{
@@ -287,6 +293,7 @@ main{
     font-size: 3rem;
     opacity: 0;
     transition: opacity 0.8s 0.4s ;
+    background-color: var(--current-bg-color);
 
 }
 .nav-active .nav-item{
@@ -408,6 +415,7 @@ main{
     overflow-x: hidden;
     height:max-content;
     opacity: 0;
+    padding-bottom: 6rem
 }
 
 
@@ -443,7 +451,7 @@ main{
 @media (width>767px) {
    
     .word{
-        font-size:3rem;
+        font-size:2.4rem;
     }
 }
 
@@ -459,3 +467,68 @@ main{
     color:var(--current-color);
 
 }
+
+
+
+
+.project-wraper {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.project {
+    width:70vw;
+
+}
+
+.project-media{
+    object-fit: cover;
+    width:100%;
+    aspect-ratio: 5/3;
+}
+@media (width>989px) {
+    .project {
+        width:50vw;
+    }
+}
+.project-tags-wrapper{
+    display: flex;
+    justify-content: start;
+    gap:1rem;
+    margin-top: .45rem;
+}
+
+.project-name, .tag{
+    color:var(--current-color);
+    
+}
+.tag{
+    border:1px solid var(--current-color);
+    text-transform: uppercase;
+    font-family: Roboto Mono,sans-serif;
+    font-size: 0.53rem;
+    font-weight: 500;
+    border-radius: 3px;
+    padding: .4rem .6rem;
+    letter-spacing: 0.08rem;
+}
+.project-name{
+    text-transform: lowercase;
+}
+
+.projects-section-container{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.project-wraper:nth-last-of-type(2n){
+    align-self: end;
+}
+.project-name{
+
+    padding-top:1rem ;
+    font-size: 1.5rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400;
+}
+

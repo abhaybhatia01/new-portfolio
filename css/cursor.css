@@ -10,7 +10,7 @@
     align-items: center;
     justify-content: center;
     mix-blend-mode: difference;
-    z-index: 10;
+    z-index: 1000;
     will-change: transform;
     opacity: 1;
     transition: opacity 0.4s ;

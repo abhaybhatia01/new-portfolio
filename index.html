@@ -49,6 +49,25 @@
             <div class="cursor-wrapper">
                 <div class="cursor"></div>
             </div>
+            <nav>
+                <div class="nav-page-wraper">
+                    <div class="nav-page">
+                        <div class="nav-items">
+                            <a class="nav-item" href=""><span>links</span></a>
+
+                            <a class="nav-item" href=""><span>links</span></a>
+                             <span class="nav-item theme-toggle">theme toggle </span>
+                             <span class="nav-item theme-reset">reset theme to automatic</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-wraper big-cursor">
+                    <div class="nav-lines">
+                        <div class="nav-line line1"></div>    
+                        <div class="nav-line line2"></div>    
+                    </div>
+                </div>
+            </nav>
 
             <main class="main-content ">
                 
@@ -65,25 +84,7 @@
                         </div>
                     </div>
                 </a>
-                <nav>
-                    <div class="nav-page-wraper">
-                        <div class="nav-page">
-                            <div class="nav-items">
-                                <a class="nav-item" href=""><span>links</span></a>
-
-                                <a class="nav-item" href=""><span>links</span></a>
-                                 <span class="nav-item theme-toggle">theme toggle </span>
-                                 <span class="nav-item theme-reset">reset theme to automatic</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="nav-wraper big-cursor">
-                        <div class="nav-lines">
-                            <div class="nav-line line1"></div>    
-                            <div class="nav-line line2"></div>    
-                        </div>
-                    </div>
-                </nav>
+                
                 <header class="hero ">
                     <div class="container">
                         <div class="hero-text-wrap "> 
@@ -170,15 +171,55 @@
                         </div>
                 </div>
                 </section>
+
+
+                <section class="projects-section">
+                    <div class="container projects-section-container">
+
+                        <div class="project-wraper big-cursor">
+                            <div class="project">
+                                <div class="image-wrapper">
+                                    <img  class ="project-media" src="https://source.unsplash.com/random/" alt="">
+                                </div>
+                                <div class="project-name"> name of project</div>
+                                <div class="project-tags-wrapper">
+                                        <div class="tag">something0 1</div>
+                                        <div class="tag">tag 2</div>
+                                </div>
+                            </div>
+                       </div>
+
+                        <div class="project-wraper big-cursor">
+                            <div class="project">
+                                <div class="image-wrapper">
+                                    <img  class ="project-media" src="https://source.unsplash.com/random/" alt="">
+                                </div>
+                                <div class="project-name"> name of project</div>
+                                <div class="project-tags-wrapper">
+                                        <div class="tag">tag 2</div>
+                                        <div class="tag">tag 2</div>
+                                </div>
+                            </div>
+                       </div>
+
+                       <div class="project-wraper big-cursor">
+                        <div class="project">
+                            <div class="image-wrapper">
+                                <img  class ="project-media" src="https://source.unsplash.com/random/" alt="">
+                            </div>
+                            <div class="project-name"> name of project</div>
+                            <div class="project-tags-wrapper">
+                                    <div class="tag">something0 1</div>
+                                    <div class="tag">tag 2</div>
+                            </div>
+                        </div>
+                   </div>
+                       
+
+
+                    </div>
+                </section>
                 
-                <div>
-                    <a href="/"
-                        ><img
-                            class="img"
-                            src="https://source.unsplash.com/random/"
-                            alt=""
-                    /></a>
-                </div>
                 <div class="footer-cta-text-wrapper big-cursor">
                     <h1 class="headline contact-cta-text">let's</h1>
                     <div class="text-switch-clip ">
@@ -264,7 +305,7 @@
                 //fadeup
                 var animateUp = anime.timeline({ loop: false, autoplay:false  })
                 animateUp.add({
-                    targets: " .char , .hero-joke,.horizontal-text-wraper",
+                    targets: " .char , .hero-joke,.horizontal-text-wraper ",
                     translateY: [120, 0],
                     translateZ: 0,
                     opacity: [0, 1],
@@ -296,6 +337,37 @@
                         }),
                         throttle: isDesktop ? 1:0.1  // Adjust the throttle value as needed
                     });
+
+                        
+                    const items = gsap.utils.toArray('.project-wraper');
+                    items.forEach(item => {
+                        gsap.from(item, {
+                            // animation properties
+                            y:isDesktop ? 80 : 60 ,
+                            opacity:0,
+                            duration: 1, // reduce duratio
+                            scrollTrigger: {
+                                trigger: item,
+                                // scrollTrigger options
+                                    start: "center bottom",
+                                    end: "center top",
+                                }
+                        });
+                    });
+                // ScrollTrigger.create({
+                //         trigger:'.project-wraper',
+                //         start: "center bottom",
+                //         end: "bottom top",
+                //         animation: gsap.from('.project-wraper', {
+                //             y:isDesktop ? 80 : 60 ,
+                //             opacity:0,
+                //             duration: 1 // reduce duration for mobile
+                //         }),
+                //         throttle: isDesktop ? 1:0.1  // Adjust the throttle value as needed
+                //     });
+
+
+                    
 
                         // if(isDesktop){
                         //     gsap.to('.sentence-forward', {

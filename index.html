@@ -174,46 +174,64 @@
 
 
                 <section class="projects-section">
-                    <div class="container projects-section-container">
+                    <div class=" projects-section-container">
 
                         <div class="project-wraper big-cursor">
                             <div class="project">
                                 <div class="image-wrapper">
                                     <img  class ="project-media" src="https://source.unsplash.com/random/" alt="">
                                 </div>
-                                <div class="project-name"> name of project</div>
+                                <div class="project-name-wraper">
+                                    <div class="name-overflow-hidden">                                    
+                                        <div class="project-name"> name of project</div>
+                                    </div>
+                                </div>
                                 <div class="project-tags-wrapper">
+                                    <div class="tags-overflow-hidden">                                    
                                         <div class="tag">something0 1</div>
                                         <div class="tag">tag 2</div>
+                                    </div>
                                 </div>
                             </div>
                        </div>
-
                         <div class="project-wraper big-cursor">
                             <div class="project">
                                 <div class="image-wrapper">
                                     <img  class ="project-media" src="https://source.unsplash.com/random/" alt="">
                                 </div>
-                                <div class="project-name"> name of project</div>
+                                <div class="project-name-wraper">
+                                    <div class="name-overflow-hidden">                                    
+                                        <div class="project-name"> name of project</div>
+                                    </div>
+                                </div>
                                 <div class="project-tags-wrapper">
+                                    <div class="tags-overflow-hidden">                                    
+                                        <div class="tag">something0 1</div>
                                         <div class="tag">tag 2</div>
-                                        <div class="tag">tag 2</div>
+                                    </div>
                                 </div>
                             </div>
                        </div>
-
-                       <div class="project-wraper big-cursor">
-                        <div class="project">
-                            <div class="image-wrapper">
-                                <img  class ="project-media" src="https://source.unsplash.com/random/" alt="">
+                        <div class="project-wraper big-cursor">
+                            <div class="project">
+                                <div class="image-wrapper">
+                                    <img  class ="project-media" src="https://source.unsplash.com/random/" alt="">
+                                </div>
+                                <div class="project-name-wraper">
+                                    <div class="name-overflow-hidden">                                    
+                                        <div class="project-name"> name of project</div>
+                                    </div>
+                                </div>
+                                <div class="project-tags-wrapper">
+                                    <div class="tags-overflow-hidden">                                    
+                                        <div class="tag">something0 1</div>
+                                        <div class="tag">tag 2</div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="project-name"> name of project</div>
-                            <div class="project-tags-wrapper">
-                                    <div class="tag">something0 1</div>
-                                    <div class="tag">tag 2</div>
-                            </div>
-                        </div>
-                   </div>
+                       </div>
+                       
+                        
                        
 
 
@@ -339,17 +357,53 @@
                     });
 
                         
-                    const items = gsap.utils.toArray('.project-wraper');
-                    items.forEach(item => {
+                    const projectWrapers = gsap.utils.toArray('.project-wraper');
+                    projectWrapers.forEach(item => {
                         gsap.from(item, {
                             // animation properties
                             y:isDesktop ? 80 : 60 ,
                             opacity:0,
-                            duration: 1, // reduce duratio
+                            duration: 0.5, // reduce duratio
                             scrollTrigger: {
                                 trigger: item,
                                 // scrollTrigger options
-                                    start: "center bottom",
+                                    start: "20% bottom",
+                                    end: "center top",
+                                }
+                        });
+                    });
+
+
+                    const projectNames = gsap.utils.toArray('.project-name');
+                    projectNames.forEach(item => {
+                        gsap.from(item, {
+                            // animation properties
+                            y:isDesktop ? -80 : -60 ,
+                            opacity:0,
+                            duration: 0.5, // reduce duratio
+
+                            scrollTrigger: {
+                                trigger: item,
+                                // scrollTrigger options
+                                    start: "bottom bottom",
+                                    end: "center top",
+                                }
+                        });
+                    });
+
+
+                    const projectTagsWrapers = gsap.utils.toArray('.project-tags-wrapper');
+                    projectTagsWrapers.forEach(item => {
+                        gsap.from(item, {
+                            // animation properties
+                            y:isDesktop ? 80 : 60 ,
+                            opacity:0,
+                            duration: 0.5, // reduce duratio
+
+                            scrollTrigger: {
+                                trigger: item,
+                                // scrollTrigger options
+                                    start: "bottom bottom",
                                     end: "center top",
                                 }
                         });

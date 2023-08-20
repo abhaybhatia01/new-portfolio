@@ -47,7 +47,10 @@
                 </div>
             </div>
             <div class="cursor-wrapper">
-                <div class="cursor"></div>
+                <div class="cursor">
+                    <img class="cursor-arrow " src="./asset/arrow.svg" alt="" srcset="">
+                </div>
+                <img class="cusrosr-view-product " src="/asset/view_product.svg" alt="" srcset="">
             </div>
             <nav>
                 <div class="nav-page-wraper">
@@ -176,9 +179,9 @@
                 <section class="projects-section">
                     <div class=" projects-section-container">
 
-                        <div class="project-wraper big-cursor">
-                            <div class="project">
-                                <div class="image-wrapper">
+                        <div data-toColor="red"* class="project-wraper product-cursor">
+                            <div  class="project">
+                                <div class="media-wrapper">
                                     <img  class ="project-media" src="https://source.unsplash.com/random/" alt="">
                                 </div>
                                 <div class="project-name-wraper">
@@ -194,9 +197,9 @@
                                 </div>
                             </div>
                        </div>
-                        <div class="project-wraper big-cursor">
-                            <div class="project">
-                                <div class="image-wrapper">
+                        <div data-toColor="blue" class="project-wraper product-cursor">
+                            <div  class="project">
+                                <div class="media-wrapper">
                                     <img  class ="project-media" src="https://source.unsplash.com/random/" alt="">
                                 </div>
                                 <div class="project-name-wraper">
@@ -212,9 +215,9 @@
                                 </div>
                             </div>
                        </div>
-                        <div class="project-wraper big-cursor">
-                            <div class="project">
-                                <div class="image-wrapper">
+                        <div data-toColor="green" class="project-wraper product-cursor">
+                            <div  class="project">
+                                <div class="media-wrapper">
                                     <img  class ="project-media" src="https://source.unsplash.com/random/" alt="">
                                 </div>
                                 <div class="project-name-wraper">
@@ -348,10 +351,12 @@
                         trigger:'.horizontal-text-wraper',
                         scrub: 0.7,
                         start: "top bottom",
+                        markers:true,
+
                         end: "bottom top",
                         animation: gsap.to('.sentence-forward', {
-                            x:isDesktop ? -800 : -600 ,
-                            duration: isDesktop ? 3:4 // reduce duration for mobile
+                            x:isDesktop ? -600 : -700 ,
+                            duration: isDesktop ? 4:3 // reduce duration for mobile
                         }),
                         throttle: isDesktop ? 1:0.1  // Adjust the throttle value as needed
                     });
@@ -367,8 +372,10 @@
                             scrollTrigger: {
                                 trigger: item,
                                 // scrollTrigger options
-                                    start: "20% bottom",
-                                    end: "center top",
+                                markers:true,
+                                    scrub: 1,
+                                    start: "10% bottom",
+                                    end: "bottom bottom",
                                 }
                         });
                     });
@@ -385,8 +392,11 @@
                             scrollTrigger: {
                                 trigger: item,
                                 // scrollTrigger options
+                                scrub: 1,
+                                markers:true,
+
                                     start: "bottom bottom",
-                                    end: "center top",
+                                    end: "bottom 75%",
                                 }
                         });
                     });
@@ -396,18 +406,33 @@
                     projectTagsWrapers.forEach(item => {
                         gsap.from(item, {
                             // animation properties
-                            y:isDesktop ? 80 : 60 ,
+                            y:isDesktop ? 40 : 30 ,
                             opacity:0,
                             duration: 0.5, // reduce duratio
 
                             scrollTrigger: {
                                 trigger: item,
                                 // scrollTrigger options
-                                    start: "bottom bottom",
-                                    end: "center top",
+                                scrub: 1,
+                                markers:true,
+                                    start: "center bottom",
+                                    end: "bottom bottom",
                                 }
                         });
                     });
+
+                    // // const body = document.querySelector('body')
+                    // document.querySelectorAll('.project-wraper').forEach(project=>{
+                    //     project.addEventListener("mouseover",e=>{
+                    //         body.style.backgroundColor=project.dataset.toColor;
+                    //         console.log(project.dataset.toColor)
+                    //     })
+                    // })
+
+
+
+
+
                 // ScrollTrigger.create({
                 //         trigger:'.project-wraper',
                 //         start: "center bottom",

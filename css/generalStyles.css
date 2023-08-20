@@ -451,7 +451,7 @@ nav{
 @media (width>767px) {
    
     .word{
-        font-size:2.4rem;
+        font-size:2.5rem;
     }
 }
 
@@ -475,14 +475,17 @@ nav{
     margin-top: 3rem;
     margin-bottom: 3rem;
 }
+.media-wrapper{
+    overflow: hidden;
 
-
+}
 
 .project-media{
     object-fit: cover;
     width:100%;
     aspect-ratio: 5/3;
 }
+
 .name-overflow-hidden{
     flex-direction: column;
     justify-content: center;
@@ -557,7 +560,3 @@ nav{
 }
 
 
-
-*{
-    cursor: url('../asset/logo.svg'), default;
-}

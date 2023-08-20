@@ -9,14 +9,22 @@ window.addEventListener("mousemove", e => {
 });
 
 const cursor_wrapper = document.querySelector('.cursor-wrapper')
+//event listener for links
 document.querySelectorAll('.big-cursor').forEach(item => {
-item.addEventListener('mouseenter', unit_hover_cursor);
-item.addEventListener('mouseleave', unit_unhover_cursor);
+item.addEventListener('mouseenter', link_hover_cursor);
+item.addEventListener('mouseleave', link_unhover_cursor);
 //Hover behaviour
-function unit_hover_cursor(e) { cursor_wrapper.classList.add('unit_cursor_hover'); }
-function unit_unhover_cursor(e) { cursor_wrapper.classList.remove('unit_cursor_hover'); }
-
+function link_hover_cursor(e) { cursor_wrapper.classList.add('link_cursor_hover'); }
+function link_unhover_cursor(e) { cursor_wrapper.classList.remove('link_cursor_hover'); }
 })
+//event listener for products
+document.querySelectorAll('.product-cursor').forEach(item => {
+    item.addEventListener('mouseenter', product_hover_cursor);
+    item.addEventListener('mouseleave', product_unhover_cursor);
+    //Hover behaviour
+    function product_hover_cursor(e) { cursor_wrapper.classList.add('product_cursor_hover'); }
+    function product_unhover_cursor(e) { cursor_wrapper.classList.remove('product_cursor_hover'); }
+    })
 
 //mouse enter and leave  the window
 document.addEventListener('mouseleave',()=>{

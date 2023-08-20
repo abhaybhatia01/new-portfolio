@@ -25,30 +25,71 @@
     aspect-ratio: 1/1;
     scale: 1;
     will-change: opacity;
-    /* background: rgba(255, 255, 255, 0); */
     transition: all 0.5s ease-out, background 0.5s ease-out;
-    mix-blend-mode: difference;
     transform-style: preserve-3d;
 
+    /* to make product cursor arrow center */
+    display:grid;
+    place-items: center;
 }
 
-.cursor-wrapper.unit_cursor_hover .cursor {
+.big-cursor:hover,
+.product-cursor:hover{
+    cursor: pointer;
+}
+
+/* link hover */
+.cursor-wrapper.link_cursor_hover .cursor {
     border-radius: 100%; 
     transition: all 0.3s ease-out;
     border: 2px solid white;
     width: 60px;
     height: 60px;
     background: white;
-    mix-blend-mode: difference;
 }
-.cursor-wrapper.unit_cursor_hover  {
+.cursor-wrapper.link_cursor_hover  {
     top: -4px;
     left: -8px;
 }
 
-.big-cursor:hover{
-    cursor: pointer;
+/* product cursor */
+.cursor-arrow,
+.cusrosr-view-product{
+    width: 0;
+    height: 0;
+    position: absolute;
+    transition: all 0.4s ease-out;
+
 }
+.cursor-wrapper.product_cursor_hover .cursor {
+    border-radius: 100%; 
+    transition: all 0.3s ease-out;
+    border: 2px solid white;
+    width: 60px;
+    height: 60px;
+    background: white;
+}
+
+.cursor-wrapper.product_cursor_hover .cursor-arrow{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.cursor-wrapper.product_cursor_hover .cusrosr-view-product{
+    width: 8rem;
+    height: 8rem;
+    animation: rotate  4s infinite linear;
+}
+@keyframes rotate {
+    0%{
+        rotate: 0deg;
+    }
+    100%{
+        rotate: 360deg;
+    }
+}
+
+
+/* mouse out of the window */
 .mouse-out{
     opacity: 0;
     transition: opacity 0.4s ;

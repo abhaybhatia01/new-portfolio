@@ -556,3 +556,8 @@ nav{
 
 }
 
+
+
+*{
+    cursor: url('../asset/logo.svg'), default;
+}

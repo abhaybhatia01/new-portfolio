@@ -38,7 +38,7 @@
 
 
     </head>
-    <body >
+    <body  >
 
             <div class="loader ">
                 <div class="spinner">
@@ -50,7 +50,7 @@
                 <div class="cursor">
                     <img class="cursor-arrow " src="./asset/arrow.svg" alt="" srcset="">
                 </div>
-                <img class="cusrosr-view-product " src="/asset/view_product.svg" alt="" srcset="">
+                <img class="cusrosr-view-product " src="./asset/view_product.svg" alt="" srcset="">
             </div>
             <nav>
                 <div class="nav-page-wraper">
@@ -60,7 +60,7 @@
 
                             <a class="nav-item" href=""><span>links</span></a>
                              <span class="nav-item theme-toggle">theme toggle </span>
-                             <span class="nav-item theme-reset">reset theme to automatic</span>
+                             <span class="nav-item theme-reset">system theme</span>
                         </div>
                     </div>
                 </div>
@@ -182,7 +182,7 @@
                         <div data-toColor="red"* class="project-wraper product-cursor">
                             <div  class="project">
                                 <div class="media-wrapper">
-                                    <img  class ="project-media" src="https://source.unsplash.com/random/" alt="">
+                                    <img  class ="project-media" src="https://source.unsplash.com/random/?map" alt="">
                                 </div>
                                 <div class="project-name-wraper">
                                     <div class="name-overflow-hidden">                                    
@@ -200,7 +200,7 @@
                         <div data-toColor="blue" class="project-wraper product-cursor">
                             <div  class="project">
                                 <div class="media-wrapper">
-                                    <img  class ="project-media" src="https://source.unsplash.com/random/" alt="">
+                                    <img  class ="project-media" src="https://source.unsplash.com/random/?snak" alt="">
                                 </div>
                                 <div class="project-name-wraper">
                                     <div class="name-overflow-hidden">                                    
@@ -218,7 +218,7 @@
                         <div data-toColor="green" class="project-wraper product-cursor">
                             <div  class="project">
                                 <div class="media-wrapper">
-                                    <img  class ="project-media" src="https://source.unsplash.com/random/" alt="">
+                                    <img  class ="project-media" src="https://source.unsplash.com/random/?book" alt="">
                                 </div>
                                 <div class="project-name-wraper">
                                     <div class="name-overflow-hidden">                                    
@@ -349,16 +349,14 @@
 
                 ScrollTrigger.create({
                         trigger:'.horizontal-text-wraper',
-                        scrub: 0.7,
+                        scrub: 0,
                         start: "top bottom",
-                        markers:true,
-
                         end: "bottom top",
                         animation: gsap.to('.sentence-forward', {
-                            x:isDesktop ? -600 : -700 ,
+                            x:isDesktop ? -150 : -50,
                             duration: isDesktop ? 4:3 // reduce duration for mobile
                         }),
-                        throttle: isDesktop ? 1:0.1  // Adjust the throttle value as needed
+                        // throttle: isDesktop ? 1:0.1  // Adjust the throttle value as needed
                     });
 
                         
@@ -368,15 +366,14 @@
                             // animation properties
                             y:isDesktop ? 80 : 60 ,
                             opacity:0,
-                            duration: 0.5, // reduce duratio
+                            duration: 0.8, // reduce duratio
                             scrollTrigger: {
                                 trigger: item,
+                                toggleActions:"play none none reverse",
                                 // scrollTrigger options
-                                markers:true,
-                                    scrub: 1,
                                     start: "10% bottom",
-                                    end: "bottom bottom",
-                                }
+                                    end: "90% top",
+                            }
                         });
                     });
 
@@ -387,18 +384,17 @@
                             // animation properties
                             y:isDesktop ? -80 : -60 ,
                             opacity:0,
-                            duration: 0.5, // reduce duratio
+                            duration: 0.6, // reduce duratio
 
                             scrollTrigger: {
+                                toggleActions:"play none restart reverse",
                                 trigger: item,
                                 // scrollTrigger options
-                                scrub: 1,
-                                markers:true,
 
-                                    start: "bottom bottom",
-                                    end: "bottom 75%",
+                                    start: "120% bottom",
+                                    end: "top top",
                                 }
-                        });
+                        })
                     });
 
 
@@ -409,25 +405,52 @@
                             y:isDesktop ? 40 : 30 ,
                             opacity:0,
                             duration: 0.5, // reduce duratio
+                            delay:0.25,
 
                             scrollTrigger: {
+                                toggleActions:"play none none reverse",
+
                                 trigger: item,
                                 // scrollTrigger options
-                                scrub: 1,
-                                markers:true,
-                                    start: "center bottom",
-                                    end: "bottom bottom",
+                                    start: "30% bottom",
+                                    end: "top top",
                                 }
                         });
                     });
 
-                    // // const body = document.querySelector('body')
-                    // document.querySelectorAll('.project-wraper').forEach(project=>{
-                    //     project.addEventListener("mouseover",e=>{
-                    //         body.style.backgroundColor=project.dataset.toColor;
-                    //         console.log(project.dataset.toColor)
-                    //     })
-                    // })
+
+
+                    // project  hover bg change
+                    projectWrapers.forEach(project=>{
+                        project.addEventListener("mouseover",e=>{
+                            body.style.backgroundColor="#ED6752";
+                            // body.style.backgroundColor=project.dataset.toColor;
+                        })
+                    })
+                    document.querySelectorAll('.project-wraper').forEach(project=>{
+                        project.addEventListener("mouseout",e=>{
+                            body.style.backgroundColor='var(--current-bg-color)';
+                            // body.style.backgroundColor=project.dataset.toColor;
+                        })
+                    })
+                    
+                    // project hover scale up
+                    const projects = document.querySelectorAll('.project');
+                    projects.forEach(project=>{
+                        const projectMediaZoom = gsap.timeline();
+                        projectMediaZoom.to(project.children[0].children[0], { scale: 1.05, duration: 0.5 , ease: Power3.out});
+                        projectMediaZoom.pause();
+                        project.addEventListener('mouseenter', () => {
+                            projectMediaZoom.play(); // Play the animation
+                        });
+                        project.addEventListener('mouseleave', () => {
+                            projectMediaZoom.reverse(); // Reverse the animation
+                        });
+                    })
+                  
+
+                    
+                    
 
 
 

@@ -429,13 +429,17 @@ position: fixed;
 }
 .media-wrapper{
     overflow: hidden;
-
+    object-fit: cover;
+    justify-content: center;
+    align-items: flex-start;
+    display: flex;
 }
 
 .project-media{
-    object-fit: cover;
+    /* object-fit: cover; */
     width:100%;
-    aspect-ratio: 5/3;
+    /* aspect-ratio: 5/3; */
+
 }
 
 .name-overflow-hidden{

@@ -179,10 +179,10 @@
                 <section class="projects-section">
                     <div class=" projects-section-container">
 
-                        <div data-toColor="red"* class="project-wraper product-cursor">
+                        <div data-color="#76CEDF" class="project-wraper product-cursor">
                             <div  class="project">
                                 <div class="media-wrapper">
-                                    <img  class ="project-media" src="https://source.unsplash.com/random/?map" alt="">
+                                    <img  class ="project-media" src="./asset/poject_images/bank_app.png" alt="">
                                 </div>
                                 <div class="project-name-wraper">
                                     <div class="name-overflow-hidden">                                    
@@ -197,10 +197,10 @@
                                 </div>
                             </div>
                        </div>
-                        <div data-toColor="blue" class="project-wraper product-cursor">
+                        <div data-color="#C0C0C0" class="project-wraper product-cursor">
                             <div  class="project">
                                 <div class="media-wrapper">
-                                    <img  class ="project-media" src="https://source.unsplash.com/random/?snak" alt="">
+                                    <img  class ="project-media" src="./asset/poject_images/allCamp_app.png" alt="">
                                 </div>
                                 <div class="project-name-wraper">
                                     <div class="name-overflow-hidden">                                    
@@ -215,10 +215,10 @@
                                 </div>
                             </div>
                        </div>
-                        <div data-toColor="green" class="project-wraper product-cursor">
+                       <div data-color="#5A5A5A" class="project-wraper product-cursor">
                             <div  class="project">
                                 <div class="media-wrapper">
-                                    <img  class ="project-media" src="https://source.unsplash.com/random/?book" alt="">
+                                    <img  class ="project-media" src="./asset/poject_images/bank_app.png" alt="">
                                 </div>
                                 <div class="project-name-wraper">
                                     <div class="name-overflow-hidden">                                    
@@ -232,9 +232,8 @@
                                     </div>
                                 </div>
                             </div>
-                       </div>
-                       
-                        
+                        </div>
+                            
                        
 
 
@@ -423,14 +422,13 @@
                     // project  hover bg change
                     projectWrapers.forEach(project=>{
                         project.addEventListener("mouseover",e=>{
-                            body.style.backgroundColor="#ED6752";
-                            // body.style.backgroundColor=project.dataset.toColor;
+                            body.style.backgroundColor=project.dataset.color;
+                    
                         })
                     })
                     document.querySelectorAll('.project-wraper').forEach(project=>{
                         project.addEventListener("mouseout",e=>{
                             body.style.backgroundColor='var(--current-bg-color)';
-                            // body.style.backgroundColor=project.dataset.toColor;
                         })
                     })
                     

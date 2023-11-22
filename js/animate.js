@@ -20,8 +20,7 @@ function letterTricks() {
 }
 // function to animate latter in text-switch class
 function do_animate() {
-    anime
-        .timeline({ loop: true })
+    anime.timeline({ loop: true })
         .add({
             targets: ".text-switch .letter",
             translateY: [100, 0],

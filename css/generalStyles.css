@@ -49,6 +49,7 @@
 /* smooth scroll recomended settings */
 html.lenis {
     height: auto;
+    /* background-color: #6A9D68; */
   }
   
   .lenis.lenis-smooth {
@@ -378,7 +379,7 @@ position: fixed;
     overflow-x: hidden;
     height:max-content;
     opacity: 0;
-    padding-bottom: 6rem
+    padding-bottom: 4rem
 }
 
 
@@ -409,9 +410,11 @@ position: fixed;
 }
 
 @media (width>767px) {
-   
     .word{
         font-size:2.5rem;
+    }
+    .horizontal-text-wraper{
+        padding-bottom: 6rem
     }
 }
 
@@ -435,6 +438,7 @@ position: fixed;
     margin-top: 3rem;
     margin-bottom: 3rem;
 }
+
 .media-wrapper{
     overflow: hidden;
     object-fit: cover;
@@ -464,7 +468,9 @@ position: fixed;
     display: flex;
     overflow: hidden;
     width: 100%;
-    gap:1rem;
+    gap:0.5rem;
+    flex-wrap: wrap;
+
 }
 
 .project-name, .tag{
@@ -480,11 +486,14 @@ position: fixed;
     border:1px solid var(--current-color);
     text-transform: uppercase;
     font-family: Roboto Mono,sans-serif;
-    font-size: 0.53rem;
+    font-size: 0.43rem;
     font-weight: 500;
     border-radius: 3px;
-    padding: .4rem .6rem;
-    letter-spacing: 0.08rem;
+    padding: .25rem .4rem;
+    letter-spacing: 0.07rem;
+    /* font-size: 0.53rem; */
+    /* letter-spacing: 0.08rem; */
+    /* padding: .4rem .6rem; */
 }
 
 .project-name{
@@ -493,9 +502,69 @@ position: fixed;
     font-family: 'Bebas Neue', sans-serif;
     font-weight: 400;
 }
+.footer-cta{
+    padding-inline: 1rem;
+}
 
+.footer-cta-container{
+    margin-block: 5rem;
+}
+.footer-cta-mail-container{
+    width: 100px;
+    height: 100px;
+    background-color: var(--current-color);
+    color: var(--current-bg-color);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+}
 
+.footer-cta-mail-link{
+    color: var(--current-bg-color);
+    text-decoration: none;
+    font-family: 'Bebas Neue', sans-serif;
+}
+.footer-cta-mail-container{
+    height: 100px;
+    width: 100px;
+    background-color: var(--current-color);
+    border-radius: 50%;
+    font-size: 0.7rem;
+    transition: all 0.3s ease-in;
+}
+.footer-cta-mail-container:hover{
+    scale:1.07;
+    transition: all 0.3s ease-out;
+    box-shadow: 0px 0px 40px -11px var(--current-color) ;
+}
+.footer-cta-mail-hover-container{
+    margin-top: 1.5rem;
+}
+
+.footer-container{
+    color: var(--current-color);
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    height: 5vh;
+
+    text-transform: uppercase;
+    font-family: Roboto Mono,sans-serif;
+    font-size: 0.43rem;
+    font-weight: 500;
+    padding: 0.25rem 0.4rem;
+    letter-spacing: 0.07rem;
+}
+.projects-section-container{
+    padding-inline: 0.5rem;
+
+}
 @media (width>600px) {
+    .tag{
+        font-size: 0.53rem;
+        letter-spacing: 0.08rem;
+        padding: .4rem .6rem;
+    }
     .project {
         width:71vw;
     }
@@ -511,6 +580,16 @@ position: fixed;
         padding-left:clamp(15px, 7%, 60px);
         padding-right:clamp(15px, 7%, 60px);
     }
+    .footer-cta-container{
+        padding-left:clamp(15px, 7%, 60px);
+        padding-right:clamp(15px, 7%, 60px);
+    }
+    .footer-cta-mail-container{
+        height: 190px;
+        width: 190px;
+        font-size: 1.3rem;
+
+    }
 }
 @media (width>989px) {
     .project {
@@ -520,7 +599,48 @@ position: fixed;
         padding-left:clamp(15px, 7%, 60px);
         padding-right:clamp(15px, 7%, 60px);
     }
+    .footer-cta-container{
+        padding-left:clamp(15px, 7%, 60px);
+        padding-right:clamp(15px, 7%, 60px);
+    }
 
 }
 
 
+@media (width<290px) {
+
+    .contact-cta-text{
+        font-size: 1.5rem;
+    }
+    .footer-cta-text-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+    .project-name{
+        font-size: 1.3rem;
+    }
+    .tag{
+        font-size: 0.4rem;
+    }
+    .hero-head, .hero-asterisk {
+        font-size: 5rem;
+    }
+    .hero-joke-container {
+        font-size: 0.4rem;
+    }
+    .word {
+        font-size: 0.9rem;
+    }
+    .horizontal-text-wraper {
+        padding-bottom: 1rem;
+    }
+    .footer-cta-mail-hover-container {
+        margin-top: 2rem;
+    }
+}
+@media (width>600px) {
+
+    .contact-cta-text{
+        font-size: 4rem;
+    }
+}

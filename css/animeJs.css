@@ -1,6 +1,7 @@
 /* textswitch and animation anime.js*/
 .contact-cta-text{
-    font-size: 4em;
+    /* font-size: 1em; */
+    font-size: 1.9rem;
     font-weight: 100;
     /* letter-spacing: 1px; */
     text-transform: uppercase;
@@ -26,3 +27,4 @@
     white-space: nowrap;
     margin-right: 0.7rem;
 }
+

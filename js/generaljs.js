@@ -33,9 +33,11 @@
                 themeToggle.addEventListener('click',()=>{
                     if(root.classList.contains("dark-theme")){
                         localStorage.setItem('color-scheme','light');
+                        notificationController("light mode applied")
                         setTheme();
                     }else{
                         localStorage.setItem('color-scheme','dark');
+                        notificationController("dark mode applied")
                         setTheme();
                     }
                 })
@@ -43,9 +45,39 @@
                 const themeReset = document.querySelector('.theme-reset')
                 themeReset.addEventListener('click',()=>{
                     const theme = localStorage.getItem('color-scheme');
-                    localStorage.removeItem('color-scheme');
-                    setTheme()
+                    if(theme){
+                        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && theme=="dark") {
+                            notificationController("default theme is set to system theme, dark theme applied")
+                        } else if ( window.matchMedia && !window.matchMedia('(prefers-color-scheme: dark)').matches && theme=="light"){
+                            notificationController("default theme is set to system theme, light theme applied")
+                        }
+                        else{
+                            notificationController()
+                            localStorage.removeItem('color-scheme');
+                            setTheme()
+                        }
+                    }else{
+                        notificationController()
+
+                        localStorage.removeItem('color-scheme');
+                        setTheme()
+                    }
                 })
+
+                function notificationController(newContent="default theme is set to system theme"){
+                    themeReset.classList.remove('notification-animation')
+                    var dynamicStyles = document.getElementById('dynamicStyles');
+                    dynamicStyles.innerHTML = '.notification-animation::after { content: "' + newContent + '"; }';
+                    themeReset.classList.toggle('notification-animation')
+                    setTimeout(function() {
+                        themeReset.classList.remove('notification-animation');
+                        dynamicStyles.innerHTML = '';
+                    }, 4000);
+                }
+
+
+
+
                 // viewing changes of theme in window
                 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', ({ matches }) => {
                     setTheme()

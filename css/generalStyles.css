@@ -109,6 +109,7 @@ main{
     margin-left: 0.7rem;
     background-color: var(--current-bg-color);
     border-radius: 100%;
+    translate: 0px 3.4px;
     /* position:fixed; */
     z-index: 3;
     /* background-color: rgba(137, 43, 226, 0.541); */

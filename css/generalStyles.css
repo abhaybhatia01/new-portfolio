@@ -682,6 +682,9 @@ translate:-3.5px 3.5px ;
 
 }
 
+.project-link{
+    text-decoration: none;
+}
 .project-name, .tag{
     color:var(--current-color);
 }
